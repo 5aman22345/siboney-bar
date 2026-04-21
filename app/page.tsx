@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import StickyMobileCTA from "@/components/layout/StickyMobileCTA";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
+import Gallery from "@/components/sections/Gallery";
 import DrinkMenu from "@/components/sections/DrinkMenu";
 import Especialidades from "@/components/sections/Especialidades";
 import InfoSection from "@/components/sections/InfoSection";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <About />
+        <Gallery />
         <DrinkMenu />
         <Especialidades />
         <InfoSection />

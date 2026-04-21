@@ -1,4 +1,5 @@
 import t from "@/lib/translations";
+import BarSketch from "@/components/ui/BarSketch";
 
 export default function About() {
   return (
@@ -28,16 +29,9 @@ export default function About() {
             </p>
           </div>
 
-          {/* Visual placeholder — sustituir por foto real del local */}
+          {/* Bar illustration */}
           <div className="relative">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-olive-600 to-olive-900 flex items-center justify-center">
-              <div className="text-center p-8">
-                <span className="text-6xl mb-4 block">🍺</span>
-                <p className="text-sand-100 text-sm opacity-60 font-medium">
-                  Foto del local
-                </p>
-              </div>
-            </div>
+            <BarSketch className="w-full rounded-2xl shadow-lg" />
             {/* Decorative accent card */}
             <div className="absolute -bottom-4 -left-4 bg-terra-500 rounded-2xl px-5 py-4 shadow-xl">
               <p className="text-white text-xs font-semibold uppercase tracking-wider mb-0.5">
