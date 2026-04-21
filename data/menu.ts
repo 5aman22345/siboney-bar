@@ -17,6 +17,7 @@ export interface DrinkItem {
   formats: DrinkFormat[];
   featured?: boolean;
   badge?: string;     // p.ej. "Sin alcohol", "Doble malta"
+  bottleVariant?: "estrella" | "freedamm" | "freedamm-tostada" | "turia" | "volldamm" | "dammlemon";
 }
 
 export interface DrinkCategory {
@@ -38,6 +39,7 @@ export const drinkCategories: DrinkCategory[] = [
           "La cerveza de Barcelona por excelencia. Elaborada con cebada malteada, arroz y lúpulo. Fresca, equilibrada y con un toque mediterráneo inconfundible.",
         alcohol: "5,40% Vol.",
         featured: true,
+        bottleVariant: "estrella",
         formats: [
           { label: "33 cl",  price: "2,40 €" },
           { label: "Caña",   price: "1,80 €" },
@@ -52,6 +54,7 @@ export const drinkCategories: DrinkCategory[] = [
           "Todo el sabor de una cerveza refrescante, sin el alcohol. Perfecta para cualquier momento del día.",
         alcohol: "0,00% Vol.",
         badge: "Sin alcohol",
+        bottleVariant: "freedamm",
         formats: [
           { label: "33 cl", price: "2,50 €" },
         ],
@@ -64,6 +67,7 @@ export const drinkCategories: DrinkCategory[] = [
           "La variante tostada de Free Damm. Notas suaves de malta y caramelo, sin alcohol.",
         alcohol: "0,00% Vol.",
         badge: "Sin alcohol",
+        bottleVariant: "freedamm-tostada",
         formats: [
           { label: "33 cl", price: "2,50 €" },
         ],
@@ -76,6 +80,7 @@ export const drinkCategories: DrinkCategory[] = [
           "Una cerveza de estilo Munich, de color ámbar y aroma a malta tostada. Suave y con cuerpo.",
         alcohol: "5,40% Vol.",
         featured: true,
+        bottleVariant: "turia",
         formats: [
           { label: "33 cl", price: "2,40 €" },
         ],
@@ -88,6 +93,7 @@ export const drinkCategories: DrinkCategory[] = [
           "Cerveza de doble fermentación, de carácter y cuerpo intenso. Para los que buscan algo diferente.",
         alcohol: "7,20% Vol.",
         badge: "Doble malta",
+        bottleVariant: "volldamm",
         formats: [
           { label: "33 cl", price: "2,50 €" },
         ],
@@ -99,6 +105,7 @@ export const drinkCategories: DrinkCategory[] = [
         description:
           "Combinación refrescante de cerveza y limón natural. La clara perfecta para los días de calor barcelonés.",
         alcohol: "3,20% Vol.",
+        bottleVariant: "dammlemon",
         formats: [
           { label: "33 cl", priceOnRequest: true },
         ],

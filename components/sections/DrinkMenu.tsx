@@ -1,5 +1,6 @@
 import { drinkCategories, type DrinkItem } from "@/data/menu";
 import { businessInfo } from "@/data/businessInfo";
+import BottleIllustration from "@/components/ui/BottleIllustration";
 import t from "@/lib/translations";
 
 function DrinkCard({ item }: { item: DrinkItem }) {
@@ -7,87 +8,98 @@ function DrinkCard({ item }: { item: DrinkItem }) {
 
   return (
     <article
-      className={`relative rounded-2xl p-5 flex flex-col gap-3 transition-shadow hover:shadow-md ${
+      className={`relative rounded-2xl overflow-hidden flex flex-col transition-shadow hover:shadow-md ${
         isFeatured
           ? "bg-olive-700 text-sand-50 ring-2 ring-olive-500"
           : "bg-white border border-sand-200"
       }`}
     >
-      {/* Badge */}
-      {item.badge && (
-        <span
-          className={`absolute top-4 right-4 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full ${
-            isFeatured ? "bg-terra-500 text-white" : "bg-terra-100 text-terra-600"
-          }`}
-        >
-          {item.badge}
-        </span>
-      )}
-
-      {/* Header */}
-      <div>
-        <h3
-          className={`font-display text-lg font-bold ${
-            isFeatured ? "text-sand-50" : "text-olive-700"
-          }`}
-        >
-          {item.name}
-        </h3>
-        <p
-          className={`text-xs font-semibold uppercase tracking-wider mt-0.5 ${
-            isFeatured ? "text-terra-300" : "text-terra-500"
-          }`}
-        >
-          {item.subtitle}
-        </p>
+      {/* Bottle illustration strip */}
+      <div
+        className={`flex justify-center items-end pt-5 pb-2 ${
+          isFeatured ? "bg-olive-800/40" : "bg-sand-100"
+        }`}
+      >
+        {item.bottleVariant ? (
+          <BottleIllustration
+            variant={item.bottleVariant}
+            className="h-28 w-auto drop-shadow-md"
+          />
+        ) : (
+          <span className="text-5xl pb-1">🍺</span>
+        )}
       </div>
 
-      {/* Description */}
-      <p
-        className={`text-sm leading-relaxed flex-1 ${
-          isFeatured ? "text-sand-200" : "text-ink-light"
-        }`}
-      >
-        {item.description}
-      </p>
+      {/* Card content */}
+      <div className="p-5 flex flex-col gap-3 flex-1">
+        {/* Badge */}
+        {item.badge && (
+          <span
+            className={`self-start text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full ${
+              isFeatured ? "bg-terra-500 text-white" : "bg-terra-100 text-terra-600"
+            }`}
+          >
+            {item.badge}
+          </span>
+        )}
 
-      {/* Alcohol */}
-      <p
-        className={`text-xs ${
-          isFeatured ? "text-sand-300" : "text-ink-muted"
-        }`}
-      >
-        {t.menu.alcoholLabel}: <span className="font-medium">{item.alcohol}</span>
-      </p>
+        {/* Name & subtitle */}
+        <div>
+          <h3
+            className={`font-display text-lg font-bold ${
+              isFeatured ? "text-sand-50" : "text-olive-700"
+            }`}
+          >
+            {item.name}
+          </h3>
+          <p
+            className={`text-xs font-semibold uppercase tracking-wider mt-0.5 ${
+              isFeatured ? "text-terra-300" : "text-terra-500"
+            }`}
+          >
+            {item.subtitle}
+          </p>
+        </div>
 
-      {/* Formats & prices */}
-      <div className="mt-auto">
-        <div
-          className={`h-px mb-3 ${isFeatured ? "bg-olive-600" : "bg-sand-200"}`}
-        />
-        <ul className="flex flex-wrap gap-2">
-          {item.formats.map((fmt) => (
-            <li
-              key={fmt.label}
-              className={`flex items-center gap-1.5 text-sm rounded-lg px-3 py-1.5 ${
-                isFeatured
-                  ? "bg-olive-600 text-sand-100"
-                  : "bg-sand-100 text-ink"
-              }`}
-            >
-              <span className="font-medium">{fmt.label}</span>
-              <span
-                className={`${
-                  fmt.priceOnRequest
-                    ? `font-normal italic ${isFeatured ? "text-sand-300" : "text-ink-muted"}`
-                    : `font-bold ${isFeatured ? "text-terra-300" : "text-terra-500"}`
+        {/* Description */}
+        <p
+          className={`text-sm leading-relaxed flex-1 ${
+            isFeatured ? "text-sand-200" : "text-ink-light"
+          }`}
+        >
+          {item.description}
+        </p>
+
+        {/* Alcohol */}
+        <p className={`text-xs ${isFeatured ? "text-sand-300" : "text-ink-muted"}`}>
+          {t.menu.alcoholLabel}: <span className="font-medium">{item.alcohol}</span>
+        </p>
+
+        {/* Formats & prices */}
+        <div>
+          <div className={`h-px mb-3 ${isFeatured ? "bg-olive-600" : "bg-sand-200"}`} />
+          <ul className="flex flex-wrap gap-2">
+            {item.formats.map((fmt) => (
+              <li
+                key={fmt.label}
+                className={`flex items-center gap-1.5 text-sm rounded-lg px-3 py-1.5 ${
+                  isFeatured ? "bg-olive-600 text-sand-100" : "bg-sand-100 text-ink"
                 }`}
               >
-                {fmt.priceOnRequest ? t.menu.priceOnRequest : fmt.price}
-              </span>
-            </li>
-          ))}
-        </ul>
+                <span className="font-medium">{fmt.label}</span>
+                <span
+                  className={`${
+                    fmt.priceOnRequest
+                      ? `font-normal italic ${isFeatured ? "text-sand-300" : "text-ink-muted"}`
+                      : `font-bold ${isFeatured ? "text-terra-300" : "text-terra-500"}`
+                  }`}
+                >
+                  {fmt.priceOnRequest ? t.menu.priceOnRequest : fmt.price}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </article>
   );
