@@ -26,6 +26,7 @@ function DrinkCard({ item }: { item: DrinkItem }) {
             src={item.bottleImage}
             alt={item.name}
             className="h-36 w-auto object-contain drop-shadow-lg"
+            style={{ mixBlendMode: isFeatured ? "multiply" : "normal" }}
           />
         ) : item.bottleVariant ? (
           <BottleIllustration
