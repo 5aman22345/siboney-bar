@@ -14,13 +14,20 @@ function DrinkCard({ item }: { item: DrinkItem }) {
           : "bg-white border border-sand-200"
       }`}
     >
-      {/* Bottle illustration strip */}
+      {/* Bottle image strip */}
       <div
-        className={`flex justify-center items-end pt-5 pb-2 ${
+        className={`flex justify-center items-end pt-5 pb-2 h-40 ${
           isFeatured ? "bg-olive-800/40" : "bg-sand-100"
         }`}
       >
-        {item.bottleVariant ? (
+        {item.bottleImage ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={item.bottleImage}
+            alt={item.name}
+            className="h-36 w-auto object-contain drop-shadow-lg"
+          />
+        ) : item.bottleVariant ? (
           <BottleIllustration
             variant={item.bottleVariant}
             className="h-28 w-auto drop-shadow-md"

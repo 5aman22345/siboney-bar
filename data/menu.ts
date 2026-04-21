@@ -18,6 +18,7 @@ export interface DrinkItem {
   featured?: boolean;
   badge?: string;     // p.ej. "Sin alcohol", "Doble malta"
   bottleVariant?: "estrella" | "freedamm" | "freedamm-tostada" | "turia" | "volldamm" | "dammlemon";
+  bottleImage?: string; // Pfad relativ zu /public, z.B. "/siboney-bar/images/estrella-damm.png"
 }
 
 export interface DrinkCategory {
@@ -40,6 +41,7 @@ export const drinkCategories: DrinkCategory[] = [
         alcohol: "5,40% Vol.",
         featured: true,
         bottleVariant: "estrella",
+        bottleImage: "/siboney-bar/images/estrella-damm.png",
         formats: [
           { label: "33 cl",  price: "2,40 €" },
           { label: "Caña",   price: "1,80 €" },
@@ -55,6 +57,7 @@ export const drinkCategories: DrinkCategory[] = [
         alcohol: "0,00% Vol.",
         badge: "Sin alcohol",
         bottleVariant: "freedamm",
+        bottleImage: "/siboney-bar/images/free-damm.png",
         formats: [
           { label: "33 cl", price: "2,50 €" },
         ],
@@ -68,6 +71,7 @@ export const drinkCategories: DrinkCategory[] = [
         alcohol: "0,00% Vol.",
         badge: "Sin alcohol",
         bottleVariant: "freedamm-tostada",
+        bottleImage: "/siboney-bar/images/free-damm-tostada.png",
         formats: [
           { label: "33 cl", price: "2,50 €" },
         ],
@@ -94,6 +98,7 @@ export const drinkCategories: DrinkCategory[] = [
         alcohol: "7,20% Vol.",
         badge: "Doble malta",
         bottleVariant: "volldamm",
+        bottleImage: "/siboney-bar/images/voll-damm.png",
         formats: [
           { label: "33 cl", price: "2,50 €" },
         ],
@@ -106,6 +111,7 @@ export const drinkCategories: DrinkCategory[] = [
           "Combinación refrescante de cerveza y limón natural. La clara perfecta para los días de calor barcelonés.",
         alcohol: "3,20% Vol.",
         bottleVariant: "dammlemon",
+        bottleImage: "/siboney-bar/images/damm-lemon.png",
         formats: [
           { label: "33 cl", priceOnRequest: true },
         ],
