@@ -17,7 +17,7 @@ function DrinkCard({ item }: { item: DrinkItem }) {
       {/* Bottle image strip */}
       <div
         className={`flex justify-center items-end pt-5 pb-2 h-40 ${
-          isFeatured ? "bg-olive-800/40" : "bg-sand-100"
+          isFeatured ? "bg-olive-700" : "bg-white"
         }`}
       >
         {item.bottleImage ? (
