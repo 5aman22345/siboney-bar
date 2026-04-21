@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    scroll-behavior: smooth;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-sand-50 text-ink;
+  }
+
+  /* Safe area for sticky mobile CTA */
+  .safe-bottom {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+}
+
+@layer utilities {
+  /* Used for mobile bottom bar spacing */
+  .pb-mobile-cta {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+}
