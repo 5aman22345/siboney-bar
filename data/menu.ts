@@ -85,6 +85,7 @@ export const drinkCategories: DrinkCategory[] = [
         alcohol: "5,40% Vol.",
         featured: true,
         bottleVariant: "turia",
+        bottleImage: "/siboney-bar/images/turia.png",
         formats: [
           { label: "33 cl", price: "2,40 €" },
         ],
