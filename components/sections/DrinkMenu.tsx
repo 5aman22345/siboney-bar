@@ -15,7 +15,7 @@ function DrinkCard({ item }: { item: DrinkItem }) {
       }`}
     >
       {/* Bottle image strip — always light background so bottles are clearly visible */}
-      <div className="flex justify-center items-end pt-5 pb-2 h-40 bg-sand-50">
+      <div className="flex justify-center items-end pt-5 pb-2 h-40 bg-white">
         {item.bottleImage ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
